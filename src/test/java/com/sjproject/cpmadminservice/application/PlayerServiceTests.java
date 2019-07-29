@@ -1,15 +1,13 @@
 package com.sjproject.cpmadminservice.application;
 
 import com.sjproject.cpmadminservice.domain.*;
-import org.assertj.core.api.AssertDelegateTarget;
 import org.junit.Before;
 import org.junit.Test;
 
-import javax.validation.constraints.AssertTrue;
 import java.util.List;
 
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 public class PlayerServiceTests {
 
