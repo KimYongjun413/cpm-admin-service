@@ -1,5 +1,6 @@
 package com.sjproject.cpmadminservice.controller;
 
+import com.sjproject.cpmadminservice.application.PlayerService;
 import com.sjproject.cpmadminservice.domain.Pitcher;
 import com.sjproject.cpmadminservice.domain.PitcherRepository;
 import org.junit.Test;
@@ -25,7 +26,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class PitcherControllerTests {
 
     @MockBean
-    PitcherRepository pitcherRepository;
+    PlayerService playerService;
 
     @Autowired
     private MockMvc mvc;
@@ -36,7 +37,7 @@ public class PitcherControllerTests {
         List<Pitcher> pitchers = new ArrayList<>();
         pitchers.add(new Pitcher("P0001", "가내영", "SK", "노말", 54L, 2000L));
         pitchers.add(new Pitcher("P0002", "가득염", "롯데", "노말", 64L, 2000L));
-        given(pitcherRepository.getPitchers()).willReturn(pitchers);
+        given(playerService.getPitchers()).willReturn(pitchers);
 
         mvc.perform(get("/pitchers"))
                 .andExpect(status().isOk())
@@ -64,7 +65,7 @@ public class PitcherControllerTests {
     public void detail() throws Exception {
 
         Pitcher pitcher = new Pitcher("P0999", "손호준", "LG", "몬스터", 99L, 2019L);
-        given(pitcherRepository.getPitcher("손호준")).willReturn(pitcher);
+        given(playerService.getPitcher("손호준")).willReturn(pitcher);
 
         mvc.perform(get("/pitchers/손호준")
                 .contentType(MediaType.APPLICATION_JSON)
