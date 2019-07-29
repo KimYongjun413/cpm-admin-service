@@ -7,7 +7,7 @@ import org.springframework.data.annotation.Id;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class hitter {
+public class Hitter {
     @Id
     private String id;
     private String name;
@@ -33,4 +33,13 @@ public class hitter {
     private String record8;
     private String record9;
     private String record10;
+
+    public Hitter(String id, String name, String team, String grade, Long overall, Long year) {
+        this.id = id;
+        this.name = name;
+        this.team = team;
+        this.grade = grade;
+        this.overall = overall;
+        this.year = year;
+    }
 }

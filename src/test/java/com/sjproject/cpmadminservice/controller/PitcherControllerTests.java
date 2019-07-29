@@ -34,8 +34,8 @@ public class PitcherControllerTests {
     public void list() throws Exception {
 
         List<Pitcher> pitchers = new ArrayList<>();
-        pitchers.add(new Pitcher("P0001", "강규철", "두산", "노말", 47L, 2000L));
-        pitchers.add(new Pitcher("P0002", "강동우", "삼성", "노말", 49L, 2000L));
+        pitchers.add(new Pitcher("P0001", "가내영", "SK", "노말", 54L, 2000L));
+        pitchers.add(new Pitcher("P0002", "가득염", "롯데", "노말", 64L, 2000L));
         given(pitcherRepository.getPitchers()).willReturn(pitchers);
 
         mvc.perform(get("/pitchers"))
@@ -44,16 +44,16 @@ public class PitcherControllerTests {
                         containsString("\"id\":\"P0001\"")
                 ))
                 .andExpect(content().string(
-                        containsString("\"name\":\"강규철\"")
+                        containsString("\"name\":\"가내영\"")
                 ))
                 .andExpect(content().string(
-                        containsString("\"team\":\"두산\"")
+                        containsString("\"team\":\"SK\"")
                 ))
                 .andExpect(content().string(
                         containsString("\"grade\":\"노말\"")
                 ))
                 .andExpect(content().string(
-                        containsString("\"overall\":47")
+                        containsString("\"overall\":54")
                 ))
                 .andExpect(content().string(
                         containsString("\"year\":2000")

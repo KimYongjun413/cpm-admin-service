@@ -11,8 +11,8 @@ public class PitcherRepositoryImpl implements PitcherRepository {
     private List<Pitcher> pitchers = new ArrayList<>();
 
     public PitcherRepositoryImpl() {
-        pitchers.add(new Pitcher("P0001", "강규철", "두산", "노말", 47L, 2000L));
-        pitchers.add(new Pitcher("P0002", "강동우", "삼성", "노말", 49L, 2000L));
+        pitchers.add(new Pitcher("P0001", "가내영", "SK", "노말", 54L, 2000L));
+        pitchers.add(new Pitcher("P0002", "가득염", "롯데", "노말", 64L, 2000L));
     }
 
     @Override
