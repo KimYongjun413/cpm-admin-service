@@ -12,7 +12,7 @@ public class Pitcher {
     private String id;
     private String name;
     private String team;
-    private String player_grade;
+    private String grade;
     private Long overall;
     private Long year;
     private Long change;
@@ -35,11 +35,11 @@ public class Pitcher {
     private String record9;
     private String record10;
 
-    public Pitcher(String id, String name, String team, String player_grade, Long overall, Long year) {
+    public Pitcher(String id, String name, String team, String grade, Long overall, Long year) {
         this.id = id;
         this.name = name;
         this.team = team;
-        this.player_grade = player_grade;
+        this.grade = grade;
         this.overall = overall;
         this.year = year;
     }

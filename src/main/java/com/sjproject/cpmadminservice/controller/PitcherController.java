@@ -1,6 +1,8 @@
 package com.sjproject.cpmadminservice.controller;
 
 import com.sjproject.cpmadminservice.domain.Pitcher;
+import com.sjproject.cpmadminservice.domain.PitcherRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,25 +15,20 @@ import java.util.List;
 public class PitcherController {
 
 
-    private List<Pitcher> pitchers = new ArrayList<>();
-
-    public PitcherController() {
-        pitchers.add(new Pitcher("P0001", "강규철", "두산", "노말", 47L, 2000L));
-        pitchers.add(new Pitcher("P0002", "강동우", "삼성", "노말", 49L, 2000L));
-    }
+    @Autowired
+    PitcherRepository pitcherRepository;
 
     @GetMapping("/pitchers")
     public List<Pitcher> list() {
+
+        List<Pitcher> pitchers = pitcherRepository.getPitchers();
 
         return pitchers;
     }
 
     @GetMapping("/pitchers/{name}")
     public Pitcher detail(@PathVariable("name") String name) {
-        Pitcher pitcher = pitchers.stream()
-                .filter(r -> r.getName().equals(name))
-                .findFirst()
-                .orElse(null);
+        Pitcher pitcher = pitcherRepository.getPitcher(name);
         return pitcher;
 
     }

@@ -12,7 +12,7 @@ public class hitter {
     private String id;
     private String name;
     private String team;
-    private String player_grade;
+    private String grade;
     private Long overall;
     private Long year;
     private Long strike;
