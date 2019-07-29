@@ -2,8 +2,10 @@ package com.sjproject.cpmadminservice.controller;
 
 import com.sjproject.cpmadminservice.domain.Pitcher;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.websocket.server.PathParam;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,8 +21,18 @@ public class PitcherController {
     }
 
     @GetMapping("/pitchers")
-    public List<Pitcher> findAll() {
+    public List<Pitcher> list() {
 
         return pitchers;
+    }
+
+    @GetMapping("/pitchers/{name}")
+    public Pitcher detail(@PathVariable("name") String name) {
+        Pitcher pitcher = pitchers.stream()
+                .filter(r -> r.getName().equals(name))
+                .findFirst()
+                .orElse(null);
+        return pitcher;
+
     }
 }
