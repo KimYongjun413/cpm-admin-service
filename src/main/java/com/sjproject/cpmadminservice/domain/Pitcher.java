@@ -34,4 +34,13 @@ public class Pitcher {
     private String record8;
     private String record9;
     private String record10;
+
+    public Pitcher(String id, String name, String team, String player_grade, Long overall, Long year) {
+        this.id = id;
+        this.name = name;
+        this.team = team;
+        this.player_grade = player_grade;
+        this.overall = overall;
+        this.year = year;
+    }
 }
