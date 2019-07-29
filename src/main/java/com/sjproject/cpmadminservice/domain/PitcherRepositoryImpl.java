@@ -1,8 +1,11 @@
 package com.sjproject.cpmadminservice.domain;
 
+import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class PitcherRepositoryImpl implements PitcherRepository {
 
     private List<Pitcher> pitchers = new ArrayList<>();
