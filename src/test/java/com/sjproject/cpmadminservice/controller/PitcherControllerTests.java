@@ -35,14 +35,14 @@ public class PitcherControllerTests {
     public void list() throws Exception {
 
         List<Pitcher> pitchers = new ArrayList<>();
-        pitchers.add(new Pitcher("P0001", "가내영", "SK", "노말", 54L, 2000L));
-        pitchers.add(new Pitcher("P0002", "가득염", "롯데", "노말", 64L, 2000L));
+        pitchers.add(new Pitcher(1L, "가내영", "SK", "노말", 54L, 2000L));
+        pitchers.add(new Pitcher(2L, "가득염", "롯데", "노말", 64L, 2000L));
         given(playerService.getPitchers()).willReturn(pitchers);
 
         mvc.perform(get("/pitchers"))
                 .andExpect(status().isOk())
                 .andExpect(content().string(
-                        containsString("\"id\":\"P0001\"")
+                        containsString("\"id\":1")
                 ))
                 .andExpect(content().string(
                         containsString("\"name\":\"가내영\"")
@@ -64,7 +64,7 @@ public class PitcherControllerTests {
     @Test
     public void detail() throws Exception {
 
-        Pitcher pitcher = new Pitcher("P0999", "손호준", "LG", "몬스터", 99L, 2019L);
+        Pitcher pitcher = new Pitcher(999L, "손호준", "LG", "몬스터", 99L, 2019L);
         given(playerService.getPitcher("손호준")).willReturn(pitcher);
 
         mvc.perform(get("/pitchers/손호준")
@@ -72,7 +72,7 @@ public class PitcherControllerTests {
                 .characterEncoding("utf-8"))
                 .andExpect(status().isOk())
                 .andExpect(content().string(
-                        containsString("\"id\":\"P0999\"")
+                        containsString("\"id\":999")
                 ))
                 .andExpect(content().string(
                         containsString("\"name\":\"손호준\"")

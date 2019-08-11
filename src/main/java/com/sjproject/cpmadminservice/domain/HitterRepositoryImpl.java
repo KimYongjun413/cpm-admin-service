@@ -11,8 +11,8 @@ public class HitterRepositoryImpl implements HitterRepository {
     private List<Hitter> hitters = new ArrayList<>();
 
     public HitterRepositoryImpl() {
-        hitters.add(new Hitter("H0001", "강규철", "두산", "노말", 47L, 2000L));
-        hitters.add(new Hitter("H0002", "강동우", "삼성", "노말", 49L, 2000L));
+        hitters.add(new Hitter(1L, "강규철", "두산", "노말", 47L, 2000L));
+        hitters.add(new Hitter(2L, "강동우", "삼성", "노말", 49L, 2000L));
     }
 
     @Override

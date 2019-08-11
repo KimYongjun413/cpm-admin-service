@@ -9,7 +9,7 @@ import org.springframework.data.annotation.Id;
 @Builder
 public class Pitcher {
     @Id
-    private String id;
+    private Long id;
     private String name;
     private String team;
     private String grade;
@@ -35,7 +35,7 @@ public class Pitcher {
     private String record9;
     private String record10;
 
-    public Pitcher(String id, String name, String team, String grade, Long overall, Long year) {
+    public Pitcher(Long id, String name, String team, String grade, Long overall, Long year) {
         this.id = id;
         this.name = name;
         this.team = team;

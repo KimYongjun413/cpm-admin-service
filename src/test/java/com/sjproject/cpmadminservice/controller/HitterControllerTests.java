@@ -35,14 +35,14 @@ public class HitterControllerTests {
     @Test
     public void list() throws Exception {
         List<Hitter> hitters = new ArrayList<>();
-        hitters.add(new Hitter("H0001", "강규철", "두산", "노말", 47L, 2000L));
-        hitters.add(new Hitter("H0002", "강동우", "삼성", "노말", 49L, 2000L));
+        hitters.add(new Hitter(1L, "강규철", "두산", "노말", 47L, 2000L));
+        hitters.add(new Hitter(2L, "강동우", "삼성", "노말", 49L, 2000L));
         given(playerService.getHitters()).willReturn(hitters);
 
         mvc.perform(get("/hitters"))
                 .andExpect(status().isOk())
                 .andExpect(content().string(
-                        containsString("\"id\":\"H0001\"")
+                        containsString("\"id\":1")
                 ))
                 .andExpect(content().string(
                         containsString("\"name\":\"강규철\"")
@@ -64,7 +64,7 @@ public class HitterControllerTests {
     @Test
     public void detail() throws Exception {
 
-        Hitter hitter = new Hitter("P0999", "손호준", "LG", "몬스터", 99L, 2019L);
+        Hitter hitter = new Hitter(999L, "손호준", "LG", "몬스터", 99L, 2019L);
         given(playerService.getHitter("손호준")).willReturn(hitter);
 
         mvc.perform(get("/hitters/손호준")
@@ -72,7 +72,7 @@ public class HitterControllerTests {
                 .characterEncoding("utf-8"))
                 .andExpect(status().isOk())
                 .andExpect(content().string(
-                        containsString("\"id\":\"P0999\"")
+                        containsString("\"id\":999")
                 ))
                 .andExpect(content().string(
                         containsString("\"name\":\"손호준\"")
