@@ -3,12 +3,18 @@ package com.sjproject.cpmadminservice.domain;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+
 @Data
+@Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class Hitter {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String team;
