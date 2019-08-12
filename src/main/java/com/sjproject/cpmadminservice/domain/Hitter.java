@@ -6,6 +6,7 @@ import org.springframework.data.annotation.Id;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import java.time.LocalDateTime;
 
 @Data
 @Entity
@@ -39,13 +40,19 @@ public class Hitter {
     private String record8;
     private String record9;
     private String record10;
+    private String createdBy;
+    private LocalDateTime createdAt;
+    private String updatedBy;
+    private LocalDateTime updatedAt;
 
-    public Hitter(Long id, String name, String team, String grade, Long overall, Long year) {
+    public Hitter(Long id, String name, String team, String grade, Long overall, Long year, String createdBy, LocalDateTime createdAt) {
         this.id = id;
         this.name = name;
         this.team = team;
         this.grade = grade;
         this.overall = overall;
         this.year = year;
+        this.createdBy = createdBy;
+        this.createdAt = createdAt;
     }
 }
