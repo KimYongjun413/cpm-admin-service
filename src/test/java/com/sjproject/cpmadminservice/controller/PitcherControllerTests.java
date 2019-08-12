@@ -12,6 +12,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,8 +36,8 @@ public class PitcherControllerTests {
     public void list() throws Exception {
 
         List<Pitcher> pitchers = new ArrayList<>();
-        pitchers.add(new Pitcher(1L, "가내영", "SK", "노말", 54L, 2000L));
-        pitchers.add(new Pitcher(2L, "가득염", "롯데", "노말", 64L, 2000L));
+        pitchers.add(new Pitcher(1L, "가내영", "SK", "노말", 54L, 2000L,"admin", LocalDateTime.now()));
+        pitchers.add(new Pitcher(2L, "가득염", "롯데", "노말", 64L, 2000L,"admin", LocalDateTime.now()));
         given(playerService.getPitchers()).willReturn(pitchers);
 
         mvc.perform(get("/pitchers"))
@@ -64,7 +65,7 @@ public class PitcherControllerTests {
     @Test
     public void detail() throws Exception {
 
-        Pitcher pitcher = new Pitcher(999L, "손호준", "LG", "몬스터", 99L, 2019L);
+        Pitcher pitcher = new Pitcher(999L, "손호준", "LG", "몬스터", 99L, 2019L,"admin", LocalDateTime.now());
         given(playerService.getPitcher("손호준")).willReturn(pitcher);
 
         mvc.perform(get("/pitchers/손호준")
